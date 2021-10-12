@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_flow"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.seraqchove.fragments.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_locationsFragment"
+            app:destination="@id/locationsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.seraqchove.fragments.RegisterFragment"
+        android:label="Registrar"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/locationsFragment"
+        android:name="com.example.seraqchove.fragments.LocationsFragment"
+        android:label="Locais"
+        tools:layout="@layout/fragment_locations">
+        <argument
+            android:name="currentUser"
+            app:argType="com.example.seraqchove.data.entities.User" />
+        <action
+            android:id="@+id/action_locationsFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_locationsFragment_to_createLocationFragment"
+            app:destination="@id/createLocationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createLocationFragment"
+        android:name="com.example.seraqchove.fragments.CreateLocationFragment"
+        android:label="Adicionar Local">
+        <action
+            android:id="@+id/action_createLocationFragment_to_locationsFragment"
+            app:destination="@id/locationsFragment" />
+    </fragment>
+</navigation>
